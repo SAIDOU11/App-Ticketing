@@ -11,7 +11,7 @@ const priorityMap: Record<Priority, { label: string; level: 1 | 2 | 3 }> = {
   LOW: { label: "Low", level: 1 },
 };
 
-const TricketPriority = ({ priority }: Props) => {
+const TicketPriority = ({ priority }: Props) => {
   return (
     <>
       <Flame
@@ -33,4 +33,4 @@ const TricketPriority = ({ priority }: Props) => {
   );
 };
 
-export default TricketPriority;
+export default TicketPriority;

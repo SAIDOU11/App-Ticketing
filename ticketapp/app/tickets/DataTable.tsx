@@ -1,5 +1,5 @@
 import TicketStatusBadge from "@/components/TicketStatusBadge";
-import TricketPriority from "@/components/TricketPriority";
+import TicketPriority from "@/components/TicketPriority";
 import {
   Table,
   TableBody,
@@ -46,7 +46,7 @@ const DataTable = ({ tickets }: Props) => {
                     </TableCell>
                     <TableCell>
                       <div className="flex justify-center">
-                        <TricketPriority priority={ticket.priority} />
+                        <TicketPriority priority={ticket.priority} />
                       </div>
                     </TableCell>
                     <TableCell>
