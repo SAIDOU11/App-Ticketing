@@ -1,3 +1,4 @@
+import Link from "next/link";
 import TicketStatusBadge from "@/components/TicketStatusBadge";
 import TicketPriority from "@/components/TicketPriority";
 import {
@@ -38,7 +39,11 @@ const DataTable = ({ tickets }: Props) => {
             {tickets
               ? tickets.map((ticket) => (
                   <TableRow key={ticket.id} data-href="/">
-                    <TableCell>{ticket.title}</TableCell>
+                    <TableCell>
+                      <Link href={`/tickets/${ticket.id}`} key={ticket.id}>
+                        {ticket.title}
+                      </Link>
+                    </TableCell>
                     <TableCell>
                       <div className="flex justify-center">
                         <TicketStatusBadge status={ticket.status} />
@@ -50,13 +55,13 @@ const DataTable = ({ tickets }: Props) => {
                       </div>
                     </TableCell>
                     <TableCell>
-                      {ticket.createdAt.toLocaleDateString("fr-FR", {
+                      {ticket.createdAt.toLocaleDateString("us-US", {
                         year: "2-digit",
                         month: "2-digit",
                         day: "2-digit",
                         hour: "numeric",
                         minute: "2-digit",
-                        hour12: false,
+                        hour12: true,
                       })}
                     </TableCell>
                   </TableRow>
