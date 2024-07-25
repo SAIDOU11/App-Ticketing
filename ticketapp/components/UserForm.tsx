@@ -70,7 +70,7 @@ const UserForm = ({ user }: Props) => {
               <FormItem>
                 <FormLabel>Full Name</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter Full Name..." {...field} />
+                  <Input placeholder="Enter Users Full Name..." {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -83,12 +83,7 @@ const UserForm = ({ user }: Props) => {
               <FormItem>
                 <FormLabel>Username</FormLabel>
                 <FormControl>
-                  <Input
-                    type="password"
-                    required={user ? false : true}
-                    placeholder="Enter a UserName..."
-                    {...field}
-                  />
+                  <Input placeholder="Enter a UserName..." {...field} />
                 </FormControl>
               </FormItem>
             )}
@@ -101,7 +96,12 @@ const UserForm = ({ user }: Props) => {
               <FormItem>
                 <FormLabel>Password</FormLabel>
                 <FormControl>
-                  <Input placeholder="Enter Password..." {...field} />
+                  <Input
+                    type="password"
+                    required={user ? false : true}
+                    placeholder="Enter Password..."
+                    {...field}
+                  />
                 </FormControl>
               </FormItem>
             )}
