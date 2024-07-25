@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { Ticket } from "@prisma/client";
+import { Ticket, User } from "@prisma/client";
 import ReactMarkDown from "react-markdown";
 import {
   Card,
@@ -13,12 +13,14 @@ import TicketStatusBadge from "@/components/TicketStatusBadge";
 import TicketPriority from "@/components/TicketPriority";
 import { buttonVariants } from "@/components/ui/button";
 import DeleteButton from "./DeleteButton";
+import AssignTicket from "@/components/AssignTicket";
 
 interface Props {
   ticket: Ticket;
+  users: User[];
 }
 
-const TicketDetail = ({ ticket }: Props) => {
+const TicketDetail = ({ ticket, users }: Props) => {
   return (
     <div className="lg:grid lg:grid-cols-4">
       <Card className="mx-4 mb-4 lg:col-span-3 lg:mr-4">
@@ -30,7 +32,7 @@ const TicketDetail = ({ ticket }: Props) => {
           <CardTitle>{ticket.title}</CardTitle>
           <CardDescription>
             Created at :{" "}
-            {ticket.createdAt.toLocaleDateString("us-US", {
+            {ticket.createdAt.toLocaleDateString("en-US", {
               year: "2-digit",
               month: "2-digit",
               day: "2-digit",
@@ -45,7 +47,7 @@ const TicketDetail = ({ ticket }: Props) => {
         </CardContent>
         <CardFooter>
           Created at :{" "}
-          {ticket.updatedAt.toLocaleDateString("us-US", {
+          {ticket.updatedAt.toLocaleDateString("en-US", {
             year: "2-digit",
             month: "2-digit",
             day: "2-digit",
@@ -56,6 +58,7 @@ const TicketDetail = ({ ticket }: Props) => {
         </CardFooter>
       </Card>
       <div className="mx-4 flex lg:flex-col lg:mx-2 gap-2">
+        <AssignTicket ticket={ticket} users={users} />
         <Link
           href={`/tickets/edit/${ticket.id}`}
           className={`${buttonVariants({ variant: "default" })}`}
