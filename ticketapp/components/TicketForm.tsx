@@ -51,7 +51,7 @@ const TicketForm = ({ ticket }: Props) => {
       router.push("/tickets");
       router.refresh();
     } catch (error) {
-      setError("Unknown Error Occuredd.");
+      setError("Unknown Error Occured.");
       setIsSubmiting(false);
     }
   }
@@ -147,6 +147,7 @@ const TicketForm = ({ ticket }: Props) => {
           </Button>
         </form>
       </Form>
+      <p className="text-destructive text-red-600">{error}</p>
     </div>
   );
 };
